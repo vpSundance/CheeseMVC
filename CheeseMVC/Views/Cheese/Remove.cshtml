@@ -1,0 +1,25 @@
+﻿<h1>Remove Cheese(s)</h1>
+
+@if (ViewBag.cheeses.Count > 0)
+{
+    <form method="post">
+        <table class="table">
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Remove</th>
+            </tr>
+            @foreach (KeyValuePair<string, string> cheese in ViewBag.cheeses)
+            {
+                <tr>
+                    <td>@cheese.Key</td>
+                    <td>@cheese.Value</td>
+                    <td><input type="checkbox" name="cheeses" value="@cheese.Key" /></td>
+                </tr>
+            }
+        </table>
+        <input type="submit" />
+    </form>
+} else {
+    <p>No cheeses to remove.</p>
+}
